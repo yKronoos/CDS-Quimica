@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "325521275509",
+    "project_id": "moleculasemacao-18800",
+    "storage_bucket": "moleculasemacao-18800.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:325521275509:android:a3529ebec912b115ba963c",
+        "android_client_info": {
+          "package_name": "br.com.ifgoiano.cdsquimica"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "325521275509-l9cli6da62u6rov4qu8r27vuv6d803mg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOVP6V68yyAHOaMECZ1Fxz5KVmk7nTvB8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "325521275509-l9cli6da62u6rov4qu8r27vuv6d803mg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
