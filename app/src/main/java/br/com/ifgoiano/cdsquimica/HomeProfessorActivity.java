@@ -1,13 +1,17 @@
 package br.com.ifgoiano.cdsquimica;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,8 +46,8 @@ public class HomeProfessorActivity extends AppCompatActivity {
     }
 
     public void addTeam(View v){
-        Team team = new Team(name.getText().toString());
-        db.collection("professors").document(uid).collection("teams").add(team)
+        Team team = new Team(name.getText().toString(), uid);
+        db.collection("class").add(team)
                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                     @Override
                     public void onSuccess(DocumentReference documentReference) {
@@ -57,9 +61,24 @@ public class HomeProfessorActivity extends AppCompatActivity {
         db.collection("professors").document(uid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-                Professor prof = documentSnapshot.toObject(Professor.class);
-                nameProf.setText(prof.getNome());
+
+                nameProf.setText(documentSnapshot.get("nome").toString());
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(HomeProfessorActivity.this, ""+e, Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void teamsList(View v){
+        Intent intent = new Intent(this, ListTeamActivity.class);
+        startActivity(intent);
+    }
+
+    public void createLevel(View v){
+        Intent intent = new Intent(this, LevelActivity.class);
+        startActivity(intent);
     }
 }

@@ -40,9 +40,25 @@
         android:layout_marginStart="44dp"
         android:layout_marginTop="48dp"
         android:drawableTop="?android:attr/alertDialogIcon"
+        android:onClick="teamsList"
         android:text="Turmas"
+        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintHorizontal_bias="0.236"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameProf" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="138dp"
+        android:layout_height="106dp"
+        android:layout_marginEnd="44dp"
+        android:drawableTop="?android:attr/alertDialogIcon"
+        android:onClick="createLevel"
+        android:text="Criar Fase"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/button3"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/edtNameTeam"

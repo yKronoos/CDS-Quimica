@@ -3,24 +3,23 @@ package br.com.ifgoiano.cdsquimica.model;
 import java.util.List;
 
 public class Professor extends Account{
-    private List<Team> team;
 
-    public Professor(){}
+    private String escola;
 
     public Professor(String nome, String email, String senha) {
         super(nome, email, senha);
     }
 
-    public Professor(String nome, String email, String senha, List<Team> team) {
+    public Professor(String nome, String email, String senha, String escola) {
         super(nome, email, senha);
-        this.team = team;
+        this.escola = escola;
     }
 
-    public List<Team> getTeam() {
-        return team;
+    public String getEscola() {
+        return escola;
     }
 
-    public void setTeam(List<Team> team) {
-        this.team = team;
+    public void setEscola(String escola) {
+        this.escola = escola;
     }
 }

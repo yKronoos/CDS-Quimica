@@ -23,7 +23,7 @@ import br.com.ifgoiano.cdsquimica.model.Professor;
 
 public class RegisterProfessorActivity extends AppCompatActivity {
 
-    private EditText name,pass, email;
+    private EditText name,pass, email, escola;
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
 
@@ -38,10 +38,11 @@ public class RegisterProfessorActivity extends AppCompatActivity {
         name = findViewById(R.id.edtNameProf);
         email = findViewById(R.id.edtEmailProf);
         pass = findViewById(R.id.edtPassProf);
+        escola = findViewById(R.id.edtNameEscola);
     }
 
     public void btnRegister(View view){
-        Professor prof = new Professor(name.getText().toString(), email.getText().toString(), pass.getText().toString());
+        Professor prof = new Professor(name.getText().toString(), email.getText().toString(), pass.getText().toString(), escola.getText().toString());
 
         if(pass.length() < 6){
             View v = findViewById(R.id.btnRegisterProf);
