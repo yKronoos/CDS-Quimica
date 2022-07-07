@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CDSQuimica"
         tools:targetApi="31">
         <activity
+            android:name=".HomeStudantActivity"
+            android:exported="false" />
+        <activity
             android:name=".LevelActivity"
             android:exported="false" />
         <activity

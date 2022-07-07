@@ -2,11 +2,9 @@ package br.com.ifgoiano.cdsquimica;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -19,45 +17,46 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.List;
 
+import br.com.ifgoiano.cdsquimica.adapter.LevelAdapter;
 import br.com.ifgoiano.cdsquimica.adapter.TeamAdapter;
+import br.com.ifgoiano.cdsquimica.model.QtdLevel;
 import br.com.ifgoiano.cdsquimica.model.Team;
 
-public class ListTeamActivity extends AppCompatActivity {
+public class HomeStudantActivity extends AppCompatActivity {
 
     protected RecyclerView recyclerView;
-    protected List<Team> teams;
-    protected TeamAdapter adapter;
+    protected List<QtdLevel> level;
+    protected LevelAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_list_team);
-
-        recyclerView = findViewById(R.id.recycleTeam);
+        setContentView(R.layout.activity_home_studant);
+        recyclerView = findViewById(R.id.recycleListLevel);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        teams = Team.getTeams();
+        level = QtdLevel.getLevels();
 
-        recyclerView.setAdapter(adapter = new TeamAdapter(this, teams, onCliclTeams()));
+        recyclerView.setAdapter(adapter = new LevelAdapter(this, level, onClickLevel()));
         adapter.notifyDataSetChanged();
 
         FirebaseAuth mAuth = FirebaseAuth.getInstance();
         FirebaseFirestore db = FirebaseFirestore.getInstance();
 
-        db.collection("class").whereEqualTo("uidProf", mAuth.getCurrentUser().getUid())
+        db.collection("level")
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document: task.getResult()){
                                 Team a = document.toObject(Team.class);
-                                teams.addAll(Team.getTeams());
+                                level.addAll(QtdLevel.getLevels());
                                 //animals.add(a);
                             }
                         }
-                        recyclerView = findViewById(R.id.recycleTeam);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(ListTeamActivity.this));
+                        recyclerView = findViewById(R.id.recycleListLevel);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(HomeStudantActivity.this));
                         recyclerView.setHasFixedSize(true);
-                        recyclerView.setAdapter(adapter = new TeamAdapter(ListTeamActivity.this, teams, onCliclTeams()));
+                        recyclerView.setAdapter(adapter = new LevelAdapter(HomeStudantActivity.this, level, onClickLevel()));
                         adapter.notifyDataSetChanged();
 
                     }
@@ -66,15 +65,17 @@ public class ListTeamActivity extends AppCompatActivity {
 
     }
 
-    protected  TeamAdapter.TeamOnClickListener onCliclTeams(){
-        return new TeamAdapter.TeamOnClickListener() {
+    protected  LevelAdapter.LevelOnClickListener onClickLevel(){
+        return new LevelAdapter.LevelOnClickListener() {
             @Override
-            public void onClickAnimal(TeamAdapter.TeamViewHolder holder, int idx) {
-                Team t = teams.get(idx);
-                Toast.makeText(ListTeamActivity.this, ""+t.getName(), Toast.LENGTH_SHORT).show();
+            public void onClickLevel(LevelAdapter.LevelViewHolder holder, int idx) {
+                QtdLevel t = level.get(idx);
+                Toast.makeText(HomeStudantActivity.this, ""+t.getQtd(), Toast.LENGTH_SHORT).show();
             }
         };
+
     }
 
-    //protected TeamAdapter.Te
+
+
 }

@@ -7,7 +7,7 @@
     tools:context=".LoginStudantActivity">
 
     <EditText
-        android:id="@+id/edtLogEmailProf"
+        android:id="@+id/edtLogEmailStudant"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -23,7 +23,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edtLogPassProf"
+        android:id="@+id/edtLogPassStudant"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
@@ -36,31 +36,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLogEmailProf" />
+        app:layout_constraintTop_toBottomOf="@+id/edtLogEmailStudant" />
 
     <Button
-        android:id="@+id/btnLogProf"
+        android:id="@+id/btnLogStudant"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="104dp"
         android:layout_marginEnd="50dp"
+        android:onClick="logginStudant"
         android:text="Entrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtLogPassProf" />
+        app:layout_constraintTop_toBottomOf="@+id/edtLogPassStudant" />
 
     <Button
-        android:id="@+id/btnToRegisterProf"
+        android:id="@+id/btnToRegisterStudant"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="50dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="50dp"
+        android:onClick="registerStudant"
         android:text="Cadastrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogProf" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogStudant" />
 </androidx.constraintlayout.widget.ConstraintLayout>

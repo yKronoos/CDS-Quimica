@@ -5,14 +5,16 @@
       <map>
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_choose.xml" value="0.35733695652173914" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_home_professor.xml" value="0.5" />
+        <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_home_studant.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_level.xml" value="0.35260416666666666" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_level_create.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_list_team.xml" value="0.2233502538071066" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_login.xml" value="0.35733695652173914" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_login_professor.xml" value="0.2627986348122867" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_login_studant.xml" value="0.35733695652173914" />
-        <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_register_aluno.xml" value="0.17831813576494426" />
+        <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_register_aluno.xml" value="0.25" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/activity_register_professor.xml" value="0.35733695652173914" />
+        <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/level_row_item.xml" value="0.365625" />
         <entry key="..\:/Users/2019101202010256/AndroidStudioProjects/CDSQuimica/app/src/main/res/layout/team_row_item.xml" value="0.25" />
       </map>
     </option>
