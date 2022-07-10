@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/background"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    android:orientation="vertical"
+    tools:context=".QuestionsActivity">
+
+    <TextView
+        android:id="@+id/txtQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#17FFFFFF"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="#FFFFFF"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/txtPergunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="4"
+        android:background="#3C878787"
+        android:text="Pergunta"
+        android:textColor="#EFEDED"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_weight="1"
+        android:backgroundTint="#54785DEF"
+        android:onClick="respostaA"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/btnB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#5E5C3BED"
+        android:onClick="respostaB"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/btnC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#57785DEF"
+        android:onClick="respostaC"
+        android:text="Button" />
+
+    <Button
+        android:id="@+id/btnD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:backgroundTint="#685C3BED"
+        android:onClick="respostaD"
+        android:text="Button" />
+</LinearLayout>

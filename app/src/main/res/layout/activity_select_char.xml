@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    android:orientation="vertical"
+    tools:context=".SelectCharActivity">
+
+    <ImageView
+        android:id="@+id/imageView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Personagens"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/person1"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="5dp"
+
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="Imagem 1"
+            app:srcCompat="@drawable/char1" />
+
+        <ImageButton
+            android:id="@+id/person2"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00FFFFFF"
+            android:contentDescription="Imagem 2"
+            app:srcCompat="@drawable/char2" />
+
+        <ImageButton
+            android:id="@+id/person3"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00000000"
+            android:contentDescription="Imagem  3"
+            app:srcCompat="@drawable/char3" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Cenário"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/cenario1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_weight="1"
+            android:contentDescription="Cenario 1"
+            app:srcCompat="@drawable/cenario1" />
+
+        <ImageButton
+            android:id="@+id/cenario2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:contentDescription="Cenario 2"
+            app:srcCompat="@drawable/cenario2" />
+
+        <ImageButton
+            android:id="@+id/cenario3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:contentDescription="Cenario 3"
+            app:srcCompat="@drawable/cenario3" />
+    </LinearLayout>
+</LinearLayout>

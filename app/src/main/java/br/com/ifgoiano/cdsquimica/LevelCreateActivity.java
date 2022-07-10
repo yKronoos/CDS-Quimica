@@ -29,6 +29,8 @@ public class LevelCreateActivity extends AppCompatActivity {
     FirebaseFirestore db;
     TextView pergunta, a,b,c,d;
     Spinner resposta;
+    int sizeQuestion = 0;
+    String nameLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +39,8 @@ public class LevelCreateActivity extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
+
+        nameLevel = getIntent().getStringExtra("levelFase");
 
         pergunta = findViewById(R.id.edtPergunta);
         a =findViewById(R.id.a);
@@ -54,6 +58,7 @@ public class LevelCreateActivity extends AppCompatActivity {
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         resposta.setAdapter(arrayAdapter);
 
+
     }
 
     public void addPergunta(View v){
@@ -64,31 +69,15 @@ public class LevelCreateActivity extends AppCompatActivity {
         String selectD = d.getText().toString();
         String resportaStr = resposta.getSelectedItem().toString();
 
-        Level level = new Level(perguntaStr, selectA, selectB, selectC, selectD, resportaStr);
+        Level level = new Level(sizeQuestion,perguntaStr, selectA, selectB, selectC, selectD, resportaStr);
 
-
-
-        db.collection("level").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        db.collection("level").document(nameLevel).collection("Perguntas").add(level).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
-            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                int levelFase = 0;
-                if(task.isSuccessful()){
-                    for(QueryDocumentSnapshot document: task.getResult()){
-                        levelFase = task.getResult().size();
-                    }
-                }
-
-                Toast.makeText(LevelCreateActivity.this, ""+levelFase--, Toast.LENGTH_SHORT).show();
-                String nameLevel = "Fase "+levelFase--;
-                db.collection("level").document(nameLevel).collection("Perguntas").add(level).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(LevelCreateActivity.this, "Pergunta cadastrada", Toast.LENGTH_SHORT).show();
-                    }
-                });
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                sizeQuestion++;
+                Toast.makeText(LevelCreateActivity.this, "Pergunta cadastrada", Toast.LENGTH_SHORT).show();
             }
         });
-
 
     }
 }

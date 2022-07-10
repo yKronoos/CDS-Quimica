@@ -4,7 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/gradiente"
+    android:orientation="vertical"
     tools:context=".ListTeamActivity">
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        app:srcCompat="@drawable/logo" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="Fases"
+        android:textColor="#FFFCFC"
+        android:textSize="34sp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleListLevel"
@@ -13,5 +32,6 @@
         android:layout_marginStart="1dp"
         android:layout_marginTop="1dp"
         android:layout_marginEnd="1dp"
+        android:layout_weight="10"
         android:layout_marginBottom="1dp" />
 </LinearLayout>

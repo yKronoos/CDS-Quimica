@@ -5,8 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -18,7 +18,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.List;
 
 import br.com.ifgoiano.cdsquimica.adapter.LevelAdapter;
-import br.com.ifgoiano.cdsquimica.adapter.TeamAdapter;
 import br.com.ifgoiano.cdsquimica.model.QtdLevel;
 import br.com.ifgoiano.cdsquimica.model.Team;
 
@@ -70,7 +69,10 @@ public class HomeStudantActivity extends AppCompatActivity {
             @Override
             public void onClickLevel(LevelAdapter.LevelViewHolder holder, int idx) {
                 QtdLevel t = level.get(idx);
-                Toast.makeText(HomeStudantActivity.this, ""+t.getQtd(), Toast.LENGTH_SHORT).show();
+                String nameLevel = t.getQtd();
+                Intent it = new Intent(HomeStudantActivity.this, SelectCharActivity.class);
+                it.putExtra("level", nameLevel);
+                startActivity(it);
             }
         };
 
