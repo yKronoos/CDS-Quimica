@@ -3,7 +3,6 @@ package br.com.ifgoiano.cdsquimica.model;
 public class Studant extends Account{
     private String turma;
     private String escola;
-    private Double score;
 
     public Studant (){}
 
@@ -15,7 +14,6 @@ public class Studant extends Account{
 
     public Studant(String nome, String email, String senha, Double score) {
         super(nome, email, senha);
-        this.score = score;
     }
 
     public String getTurma() {
@@ -32,13 +30,5 @@ public class Studant extends Account{
 
     public void setEscola(String escola) {
         this.escola = escola;
-    }
-
-    public Double getScore() {
-        return score;
-    }
-
-    public void setScore(Double score) {
-        this.score = score;
     }
 }
