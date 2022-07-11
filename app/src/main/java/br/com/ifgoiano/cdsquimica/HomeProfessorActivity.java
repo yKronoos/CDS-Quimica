@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -46,28 +47,36 @@ public class HomeProfessorActivity extends AppCompatActivity {
     }
 
     public void addTeam(View v){
-        Team team = new Team(name.getText().toString(), uid);
-        db.collection("class").add(team)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        View view = findViewById(R.id.addTeam);
-                        Snackbar.make(view, "Turma cadastrada com sucesso", Snackbar.LENGTH_LONG).show();
-                    }
-                });
+
+        if(TextUtils.isEmpty(name.getText().toString()) || name.getText().toString().equals("")){
+            Toast.makeText(this, "O campo não pode estar vazio", Toast.LENGTH_SHORT).show();
+
+        }else {
+
+            Team team = new Team(name.getText().toString(), uid);
+            db.collection("class").add(team)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            View view = findViewById(R.id.addTeam);
+                            Snackbar.make(view, "Turma cadastrada com sucesso", Snackbar.LENGTH_LONG).show();
+                        }
+                    });
+        }
     }
 
     public void getData(String uid){
         db.collection("professors").document(uid).get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
             @Override
             public void onSuccess(DocumentSnapshot documentSnapshot) {
-
-                nameProf.setText(documentSnapshot.get("nome").toString());
+                    nameProf.setText(documentSnapshot.get("nome").toString());
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception e) {
-                Toast.makeText(HomeProfessorActivity.this, ""+e, Toast.LENGTH_SHORT).show();
+                Log.d("error", String.valueOf(e));
+                Intent it = new Intent(HomeProfessorActivity.this, LoginProfessorActivity.class);
+                startActivity(it);
             }
         });
     }

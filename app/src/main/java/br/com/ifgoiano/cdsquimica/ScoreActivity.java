@@ -45,7 +45,7 @@ public class ScoreActivity extends AppCompatActivity {
 
     public void backListLevel(View v){
         String uid = mAuth.getUid();
-        Score sc = new Score(uid, score);
+        Score sc = new Score(level,uid, score);
 
         db.collection("level").document(level).collection("results")
                 .add(sc).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {

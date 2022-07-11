@@ -52,19 +52,19 @@ public class SelectCharActivity extends AppCompatActivity {
         });
     }
     public void getBackground1(){
-        Intent it = new Intent(SelectCharActivity.this, QuestionsActivity.class);
+        Intent it = new Intent(SelectCharActivity.this, StartQuestionActivity.class);
         it.putExtra("level", levelName);
         it.putExtra("background",  "cenario1");
         startActivity(it);
     }
     public void getBackground2(){
-        Intent it = new Intent(SelectCharActivity.this, QuestionsActivity.class);
+        Intent it = new Intent(SelectCharActivity.this, StartQuestionActivity.class);
         it.putExtra("level", levelName);
         it.putExtra("background",  "cenario2");
         startActivity(it);
     }
     public void getBackground3(){
-        Intent it = new Intent(SelectCharActivity.this, QuestionsActivity.class);
+        Intent it = new Intent(SelectCharActivity.this, StartQuestionActivity.class);
         it.putExtra("level", levelName);
         it.putExtra("background",  "cenario3");
         startActivity(it);

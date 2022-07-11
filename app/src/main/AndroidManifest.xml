@@ -16,6 +16,9 @@
         android:theme="@style/Theme.CDSQuimica"
         tools:targetApi="31">
         <activity
+            android:name=".StartQuestionActivity"
+            android:exported="false" />
+        <activity
             android:name=".InitialActivity"
             android:exported="true">
             <intent-filter>
@@ -57,7 +60,6 @@
         <activity
             android:name=".ChooseActivity"
             android:exported="false" />
-
         <activity
             android:name=".LoginProfessorActivity"
             android:exported="false" />

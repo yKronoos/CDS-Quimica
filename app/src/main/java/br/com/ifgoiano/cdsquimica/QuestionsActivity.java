@@ -97,10 +97,10 @@ public class QuestionsActivity extends AppCompatActivity {
     }
 
     private void disableButtons(){
-        a.setTextColor(getResources().getColor(R.color.black));
-        b.setTextColor(getResources().getColor(R.color.black));
-        c.setTextColor(getResources().getColor(R.color.black));
-        d.setTextColor(getResources().getColor(R.color.black));
+        a.setTextColor(getResources().getColor(R.color.white));
+        b.setTextColor(getResources().getColor(R.color.white));
+        c.setTextColor(getResources().getColor(R.color.white));
+        d.setTextColor(getResources().getColor(R.color.white));
     }
 
     public void respostaA(View v){

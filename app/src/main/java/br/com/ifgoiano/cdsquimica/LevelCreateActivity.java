@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
@@ -62,22 +63,33 @@ public class LevelCreateActivity extends AppCompatActivity {
     }
 
     public void addPergunta(View v){
-        String perguntaStr = pergunta.getText().toString();
-        String selectA = a.getText().toString();
-        String selectB = b.getText().toString();
-        String selectC = c.getText().toString();
-        String selectD = d.getText().toString();
-        String resportaStr = resposta.getSelectedItem().toString();
 
-        Level level = new Level(sizeQuestion,perguntaStr, selectA, selectB, selectC, selectD, resportaStr);
+        if(TextUtils.isEmpty(pergunta.getText().toString()) ||
+                TextUtils.isEmpty(a.getText().toString()) ||
+                TextUtils.isEmpty(b.getText().toString()) ||
+                TextUtils.isEmpty(c.getText().toString()) ||
+                TextUtils.isEmpty(d.getText().toString()) ||
+                resposta.getSelectedItem().toString().equals("--Selecione--")){
 
-        db.collection("level").document(nameLevel).collection("Perguntas").add(level).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-            @Override
-            public void onComplete(@NonNull Task<DocumentReference> task) {
-                sizeQuestion++;
-                Toast.makeText(LevelCreateActivity.this, "Pergunta cadastrada", Toast.LENGTH_SHORT).show();
-            }
-        });
+            Toast.makeText(this, "A pergunta ou respotas estão em branco", Toast.LENGTH_SHORT).show();
 
+        }else{
+            String perguntaStr = pergunta.getText().toString();
+            String selectA = a.getText().toString();
+            String selectB = b.getText().toString();
+            String selectC = c.getText().toString();
+            String selectD = d.getText().toString();
+            String resportaStr = resposta.getSelectedItem().toString();
+
+            Level level = new Level(sizeQuestion,perguntaStr, selectA, selectB, selectC, selectD, resportaStr);
+
+            db.collection("level").document(nameLevel).collection("Perguntas").add(level).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentReference> task) {
+                    sizeQuestion++;
+                    Toast.makeText(LevelCreateActivity.this, "Pergunta cadastrada", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
     }
 }
